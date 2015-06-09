@@ -1,0 +1,23 @@
+{
+  "name": "oauth",
+  "version": "1.0.0",
+  "description": "Beer locker tutorial with heroku",
+  "main": "server.js",
+  "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaredwindover/OAuth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaredwindover/OAuth/issues"
+  },
+  "homepage": "https://github.com/jaredwindover/OAuth#readme",
+  "dependencies": {
+    "express": "^4.12.4"
+  }
+}
