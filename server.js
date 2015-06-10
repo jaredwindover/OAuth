@@ -52,7 +52,7 @@ beerRoute.get(function(req, res) {
     });
 });
 
-beerRoute.put(function(req. res) {
+beerRoute.put(function(req, res) {
     Beer.findById(req.params.beer_id, function(err, beer) {
 	if (err) {
 	    res.send(err);
