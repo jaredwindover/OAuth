@@ -1,7 +1,7 @@
 var express    = require('express');
 var mongoose   = require('mongoose');
 var bodyParser = require('body-parser');
-var beerController = require('./conrollers/beer');
+var beerController = require('./controllers/beer');
 
 mongoose.connect('mongodb://BeerLocker:1o1u2a3m5d@ds031721.mongolab.com:31721/heroku_app37684533');
 
