@@ -31,9 +31,9 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.use('/api',router);
-
 app.use(passport.initialize());
+
+app.use('/api',router);
 
 app.listen(port);
 
