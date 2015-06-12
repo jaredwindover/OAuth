@@ -27,6 +27,10 @@ router.route('/users')
     .post(userController.postUsers)
     .get(authController.isAuthenticated, userController.getUsers);
 
+router.route('/clients')
+    .post(authController.isAuthenticated, clientController.postClients)
+    .get(authController.isAuthenticated, clientController.getClients)
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
