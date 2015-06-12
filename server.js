@@ -5,6 +5,7 @@ var passport   = require('passport');
 var beerController = require('./controllers/beer');
 var userController = require('./controllers/user');
 var authController = require('./controllers/auth');
+var clientController = require('./controllers/client');
 
 mongoose.connect('mongodb://BeerLocker:1o1u2a3m5d@ds031721.mongolab.com:31721/heroku_app37684533');
 
