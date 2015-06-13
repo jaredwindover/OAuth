@@ -3,6 +3,7 @@ var BasicStrategy = require('passport-http').BasicStrategy;
 var BearerStrategy = require('passport-http-bearer').Strategy;
 var User = require('../models/user');
 var Token = require('../models/token');
+var Client = require('../models/client');
 
 passport.use(new BasicStrategy(
     function(username, password, callback) {
@@ -20,7 +21,7 @@ passport.use(new BasicStrategy(
 
 passport.use('client-basic', new BasicStrategy(
     function(username, password, callback) {
-	client.findOne({id:username}, function(err, client) {
+	Client.findOne({id:username}, function(err, client) {
 	    if (err) {return callback(err);}
 
 	    if (!client || client.secret !== password) {
