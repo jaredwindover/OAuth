@@ -52,12 +52,11 @@ server.exchange(oauth2orize.exchange.code(function(client,
 		clientId: authCode.clientId,
 		userId: authCode.userId
 	    });
-	});
-
-	token.save(function (err) {
-	    if (err) {return callback(err);}
-
-	    callback(null, token);
+	    token.save(function (err) {
+		if (err) {return callback(err);}
+		
+		callback(null, token);
+	    });
 	});
     });
 }));
