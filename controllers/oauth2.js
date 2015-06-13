@@ -12,7 +12,7 @@ server.serializeClient(function(client, callback) {
 
 server.deserializeClient(function(id, callback) {
     Client.findOne({_id: id}, function(err, client){
-	if (err) {console.log("Uh oh A");return callback(err);}
+	if (err) {return callback(err);}
 	return callback(null, client);
     });
 });
@@ -30,7 +30,7 @@ server.grant(oauth2orize.grant.code(function (client,
     });
     
     code.save(function(err) {
-	if (err) {console.log("Uh oh B");return callback(err);}
+	if (err) {return callback(err);}
 	callback(null, code.value);
     });
 }));
@@ -40,13 +40,13 @@ server.exchange(oauth2orize.exchange.code(function(client,
 						   redirectUri,
 						   callback){
     Code.findOne({value: code}, function (err, authCode){
-	if (err) {console.log("Uh oh C");return callback(err);}
+	if (err) {return callback(err);}
 	if (authCode === undefined) {return callback(null, false);}
 	if (client._id.toString() !== authCode.clientId){return callback(null, false);}
 	if (redirectUri !== authCode.redirectUri){return callback(null, false);}
 
 	authCode.remove(function(err){
-	    if (err) {console.log("Uh oh D"); return callback(err);}
+	    if (err) { return callback(err);}
 	    var token = new Token({
 		value: uid(256),
 		clientId: authCode.clientId,
@@ -55,7 +55,7 @@ server.exchange(oauth2orize.exchange.code(function(client,
 	});
 
 	token.save(function (err) {
-	    if (err) {console.log("Uh oh E");return callback(err);}
+	    if (err) {return callback(err);}
 
 	    callback(null, token);
 	});
@@ -65,7 +65,7 @@ server.exchange(oauth2orize.exchange.code(function(client,
 exports.authorization = [
     server.authorization(function(clientId, redirectUri, callback) {
 	Client.findOne({id: clientId}, function(err,client){
-	    if (err) {console.log("Uh oh F");return callback(err);}
+	    if (err) {return callback(err);}
 	    return callback(null, client, redirectUri);
 	});
     }),
