@@ -54,7 +54,7 @@ server.exchange(oauth2orize.exchange.code(function(client,
 	    });
 	});
 
-	Token.save(function (err) {
+	token.save(function (err) {
 	    if (err) {return callback(err);}
 
 	    callback(null, token);
